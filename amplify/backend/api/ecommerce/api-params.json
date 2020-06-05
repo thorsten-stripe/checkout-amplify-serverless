@@ -1,0 +1,65 @@
+{
+    "paths": [
+        {
+            "name": "/products",
+            "lambdaFunction": "listProducts",
+            "privacy": {
+                "protected": true,
+                "auth": [
+                    "/GET"
+                ],
+                "unauth": [
+                    "/GET"
+                ]
+            }
+        },
+        {
+            "name": "/checkout",
+            "lambdaFunction": "checkout",
+            "privacy": {
+                "protected": true,
+                "auth": [
+                    "/POST"
+                ],
+                "unauth": [
+                    "/POST"
+                ]
+            }
+        }
+    ],
+    "resourceName": "ecommerce",
+    "apiName": "ecommerce",
+    "functionArns": [
+        {
+            "lambdaFunction": "listProducts"
+        },
+        {
+            "lambdaFunction": "checkout"
+        }
+    ],
+    "privacy": {
+        "auth": 2,
+        "unauth": 2,
+        "authRoleName": "amplify-stripeamplify-dev-135429-authRole",
+        "unAuthRoleName": "amplify-stripeamplify-dev-135429-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "listProducts",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "checkout",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "efb7efa9"
+}
